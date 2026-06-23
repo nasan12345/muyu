@@ -11,12 +11,21 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:"PingFang SC","Micr
 .scr{position:absolute;top:0;left:0;width:100%;height:100%;display:none;overflow:hidden}
 .scr.on{display:block}
 button{cursor:pointer;border:none;outline:none;font-family:inherit;-webkit-tap-highlight-color:transparent}
+.wx-tip{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.85);color:rgba(255,255,255,.8);font-size:13px;text-align:center;padding:10px 16px;line-height:1.5;display:none}
+.wx-tip span{color:#b8a0c8;font-weight:600}
+@media (max-width:430px){.wx-tip{font-size:12px;padding:8px 12px}}
 </style>
 </head>
 <body>
+<div class="wx-tip" id="wxTip">如出现安全提示，请点击「<span>继续访问</span>」<br>建议点击右上角「···」→<span>在浏览器中打开</span>，体验更流畅</div>
+<script>
+if(navigator.userAgent.match(/MicroMessenger/i)){
+  document.getElementById('wxTip').style.display='block';
+}
+</script>
 <div class="phone">
 
-<div id="spl" class="scr on" style="background:url('images/splash_bg.jpg') center/cover no-repeat">
+<div id="spl" class="scr on" style="background:url('images/splash_bg.png') center/cover no-repeat">
   <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(15,12,24,.8) 100%)"></div>
   <button onclick="enter()" style="position:absolute;left:50%;top:40%;transform:translateX(-50%);width:70%;height:56px;border-radius:50px;border:none;background:#5a3080;color:#fff;font-size:clamp(18px,5vw,28px);font-weight:600;letter-spacing:6px;z-index:2">开始成长</button>
 </div>
